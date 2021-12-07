@@ -15,19 +15,19 @@ function addTask(e) {
 
   if (taskInput.value == "") {
     alert("Add a task!");
+  } else {
+    let li = document.createElement("li");
+    li.className = "collection-item";
+    li.appendChild(document.createTextNode(taskInput.value));
+
+    let link = document.createElement("a");
+    link.className = "delete-item secondary-content";
+    link.innerHTML = "<i class='fas fa-trash-alt'></i>";
+
+    li.appendChild(link);
+
+    taskList.appendChild(li);
+
+    taskInput.value = "";
   }
-
-  let li = document.createElement("li");
-  li.className = "collection-item";
-  li.appendChild(document.createTextNode(taskInput.value));
-
-  let link = document.createElement("a");
-  link.className = "delete-item secondary-content";
-  link.innerHTML = "<i class='fas fa-trash-alt'></i>";
-
-  li.appendChild(link);
-
-  taskList.appendChild(li);
-
-  taskInput.value = "";
 }
